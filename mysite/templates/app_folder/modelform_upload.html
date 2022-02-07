@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">ファイルアップロード</h4>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Name :　{{ form.description }}</p>
+    <p>File :　{{ form.document }}</p>
+    <input type="submit" value="アップロード">
+</form>
+
+{% endblock %}

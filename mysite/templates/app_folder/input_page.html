@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block contents %}
+<h4 class="mt-5 mb-4 border-bottom">
+    文字を入力してください<br>
+    指定した色を付けます
+</h4>
+<form action='/app_folder/colorful/' method="post">
+{% csrf_token %}
+    <div>   
+        <label for='word1'>文字</label><br>
+        <textarea id='word1' name='sentence1' rows="3" cols="40">
+テストの文です
+あいうえお
+</textarea>
+    </div><br>
+    <div>   
+        <label for='word2'>色の名前orカラーコード</label>
+        <input id='word2' type='text' name='sentence2' maxlength="50" value="red">
+    </div><br>
+    <input type="submit" value="OK">
+</form>
+<br>
+<a href="https://www.colordic.org/" target="_blank">
+    詳しいカラーコードはこちら
+</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">検索できる単語の追加</h4>
+<form method="POST">
+    {% csrf_token %}
+    <p>検索単語</p>{{ form.sample1 }}<br><br>
+    <p>意味・表示</p>{{ form.sample2 }}<br><br>
+    <input type="submit" value="追加">
+</form>
+<br><a href='/app_folder/search/'>戻る</a>
+{% endblock %}

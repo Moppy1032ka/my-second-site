@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">結果</h4>
+
+<div class="col-4">
+    <p>
+        <font color='{{word2}}' size="5">
+            <pre>{{ word1 }}</pre>        
+        </font>
+    </p>
+    <p>色 : {{ word2 }}</p>
+</div>
+
+<a href='/app_folder/input/'>戻る</a>
+{% endblock %}

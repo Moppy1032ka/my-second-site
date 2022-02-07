@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">検索条件を入力</h4>
+<form  action="{% url 'app_folder:search' %}" method="post">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <input class="form-control" type="text" name="input_data" maxlength="255">
+    </div>
+    <div class="col-2">
+      <div class="text-left align-bottom">
+          <button type="submit" name="button" class="btn btn-info">
+            検索
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% csrf_token %}
+</form>
+<br>
+{% if user.is_authenticated %}
+<a href='/app_folder/new_sample'>追加</a>
+{% endif %}
+
+{% endblock %}

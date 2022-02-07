@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">質問リスト</h4>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li>
+            <h3>
+                <a href="{% url 'app_folder:detail' question.id %}">{{ question.question_text }}</a>
+            </h3>
+        </li>
+        <p>publish date:{{ question.pub_date }}</p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<br><a href='{% url "app_folder:add_question" %}'>質問を追加する</a>
+{% endblock %}

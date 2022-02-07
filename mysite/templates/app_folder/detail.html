@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h1 class="mt-5 mb-4 border-bottom">{{ question.question_text }}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'app_folder:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">
+        <h5>{{ choice.choice_text }}</h5>
+    </label>
+    <br>
+{% endfor %}
+<input type="submit" value="Vote" >
+<a href='/app_folder/poll/{{ question.id }}/results'>
+投票結果を表示
+</a>
+<br><br><a href='/app_folder/poll/'>質問一覧に戻る</a>
+</form>
+
+{% endblock %}

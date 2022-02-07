@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h4 class="mt-5 mb-4 border-bottom">ファイル一覧</h4>
+
+{% if fileurl %}
+    <ul>
+    {% for file in fileurl %}
+        <li>
+            <h5>
+                <a href="/media/{{ file.document }}">
+                    {{ file.description }}
+                </a>
+            </h5>
+        </li>
+        <p>upload date: {{ file.uploaded_at }}</p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No file are available.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href='/app_folder/upload/'>アップロード</a>
+{% endif %}
+
+{% endblock %}

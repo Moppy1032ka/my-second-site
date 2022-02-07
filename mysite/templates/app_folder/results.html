@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h1 class="mt-5 mb-4 border-bottom">{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li><h5>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</h5></li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'app_folder:detail' question.id %}">Vote again?</a>
+
+{% endblock %}
